@@ -37,6 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mongoengine.django.mongo_auth',
+    'rest_framework',
+    'rest_framework_mongoengine',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,10 +79,27 @@ WSGI_APPLICATION = 'newproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.dummy'
     }
 }
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'static/app/views/'),
+    os.path.join(BASE_DIR, 'static/app/'),
+    os.path.join(BASE_DIR, 'static/'),
+)
+
+
+STATIC_ROOT= ""
+
+STATIC_URL = '/static/'
+
+print '----------------------------------->>>'
+print BASE_DIR
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,"static/"),
+)
 
 
 # Internationalization
@@ -96,7 +116,22 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
+STATIC_URL = '/static/'
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'nani282828@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'raJUgaRU3959.'
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+
